@@ -1,15 +1,21 @@
 import ImageProfile from "../components/ImgaePorfile.jsx"
+import Table from "../components/Table.jsx"
 import reacti from "public/imagenes/react.jpg"
 
 export default function Posts(){
     return (
     <>
-        <h1>Posts</h1>
-        <ImageProfile
-          src={reacti}
-          width={200}
-          height={200}
+      <div className="contenedor-p">
+        <ImageProfile 
+         src={reacti}
+         width={150}
+          height={150}
         />
+        <div>
+          <Table />
+        </div>
+      </div> 
+      
     </>
     )
 }

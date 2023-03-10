@@ -7,11 +7,6 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <div >
-      <h1 >Pagina de Inicio!</h1>
-         
-      <p >
-        lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quod quia voluptas, quae
-      </p>
     </div>
   )
 }

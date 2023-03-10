@@ -11,17 +11,25 @@ export default function Navigation(){
         {
             name: 'Posts',
             route: './posts'
+        },
+        {
+          name: 'Contact',
+          route: './posts'
+        },
+        {
+          name: 'Next',
+          route: './posts'
         } 
     ]
 
     return (
       <>
-      <header>
-        <nav className={styles.li-styles}>
-            <ul className={styles.lista}>
+      <header className={styles.contenedor_header}>
+        <nav>
+            <ul className={styles.nav_menu}>
                {links.map(({ name, route }) =>(
-                    <li key={name} className={styles.item_link}>
-                      <Link href={route}>
+                    <li key={name}  className={styles.nav_item}>
+                      <Link href={route} className={styles.nexta}>
                         {name}
                       </Link>    
                     </li>
