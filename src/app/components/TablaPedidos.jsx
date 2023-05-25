@@ -3,9 +3,9 @@ import { Table } from 'react-bootstrap';
 export default function TablaPedidos( { orders, watchOrders, trashOrders } ) {
 
     return (
-        <>
+        <div>
             <Table responsive="sm">
-                <thead>
+                <thead className='table-dark'>
                     <tr>
                         <th>#</th>
                         <th>Cliente</th>
@@ -20,7 +20,7 @@ export default function TablaPedidos( { orders, watchOrders, trashOrders } ) {
                 </thead>
                 <tbody>
                         { orders.map((order, index) => (
-                            <tr>
+                            <tr key={index}>
                             <td>{ index + 1 }</td>
                             <td>{ order.client }</td>
                             <td>{ order.code }</td>
@@ -45,6 +45,6 @@ export default function TablaPedidos( { orders, watchOrders, trashOrders } ) {
                         )) }
                 </tbody>
             </Table>
-        </>
+        </div>
     );
 }

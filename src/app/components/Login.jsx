@@ -29,7 +29,7 @@ export default function Login({ options, handleSelect, handleEmail, handlePasswo
                         <Form.Control type="password" placeholder='************' onChange={handlePassword} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Link href="/admin">
+                        <Link href="/inicio-cliente">
                             <Button
                                 variant="primary"
                                 >

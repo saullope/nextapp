@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 export default function Navigation() {
 
+
   const routes = [
     {
       name: 'Catalogo',
@@ -23,7 +24,7 @@ export default function Navigation() {
     <>
       <Navbar bg="light" variant="secondary" fixed="top">
         <Container>
-          <Navbar.Brand href="">Panel de Administracion</Navbar.Brand>
+          <Navbar.Brand href="/admin">Panel de Administracion</Navbar.Brand>
           <Nav className="me-auto" >
             { routes.map((route) => (
               <Nav.Link href={route.path} eventKey={route.name} 

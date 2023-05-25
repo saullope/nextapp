@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Navigation from '../components/Navigation';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap'
 import ProductCatalogo from '../components/ProductCatalogo';
-  
+import HeadTitle from '../components/HeadTitle';  
 
 export default function Catalogo() {
 
@@ -56,14 +56,9 @@ export default function Catalogo() {
 
     return (
         <>
-            <Navigation /> <br />
+            <Navigation />
+            <HeadTitle title={"Estilos disponibles para ti"} />
             <Container>
-                    <Row>
-                        <Col sm="12">
-                            <br />
-                            <p className='display-6'>Catalogo</p>
-                        </Col>
-                    </Row> <br />
                     <Row className='mb-3'>
                         <Form.Group as={Col} md="4">
                             <Form.Label>Buscar por:</Form.Label>
@@ -78,14 +73,14 @@ export default function Catalogo() {
                         </Form.Group>
                         <Form.Group as={Col} md="auto">
                             <br />
-                            <Button variant="primary" type="submit">
-                                <i class="bi bi-search">Buscar</i>
+                            <Button variant="primary" >
+                                <i className="bi bi-search">Buscar</i>
                             </Button>
                         </Form.Group>
                         <Form.Group as={Col} md="auto">
                             <br />
-                            <Button variant="success" type="submit">
-                                <i class="bi bi-plus-lg">Agregar estilo</i>
+                            <Button variant="success" >
+                                <i className="bi bi-plus-lg">Agregar estilo</i>
                             </Button>
                         </Form.Group>
                     </Row>

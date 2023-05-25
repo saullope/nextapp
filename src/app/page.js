@@ -11,8 +11,8 @@ import {
 export default function Home() {
 
   const optionsRol = [
-    {name: 'Administrador', value: 'admin'},
-    {name: 'Cliente', value: 'custoner'},
+    {name: 'Administrador', value: '/admin'},
+    {name: 'Cliente', value: '/inicio-cliente'},
   ]
 
   const [ rol, setRol ] = useState('');
@@ -37,7 +37,8 @@ export default function Home() {
 
   const ShowRol = () => {
     alert(`This your's email: ${email} \n This your's rol: ${rol}`);
-  }
+  };
+
 
   return (
     <div >

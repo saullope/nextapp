@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Navigation from '../components/Navigation';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import TablaPedidos from '../components/TablaPedidos';
+import HeadTitle from '../components/HeadTitle';
 
 export default function Pedidos() {
 
@@ -97,14 +98,9 @@ export default function Pedidos() {
 
     return (
         <>
-            <Navigation /><br />
+            <Navigation />
+            <HeadTitle title={"Pedidos"} />
             <Container>
-                <Row>
-                    <Col sm="12">
-                        <br />
-                        <p className='display-6'>Pedidos</p>
-                    </Col>
-                </Row> <br />
                 <Row className='mb-3'>
                         <Form.Group as={Col} md="4">
                             <Form.Label>Buscar por:</Form.Label>
