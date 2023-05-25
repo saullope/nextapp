@@ -45,11 +45,11 @@ export default function Home() {
       <Container>
         <Row>
           <Col sm="8">
-            <br /><br />
+            <br /><br /><br /><br />
             <h1 className="display-4 fw-bold lh-1 text-body-emphasis mb-3">
-              Bienvenido a la tienda de zapatos
+              Calzado de Alta Calidad
             </h1>
-            <p className="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+            <p className="col-lg-10 fs-4">Calidad y estilo excepcionales al mejor precio.</p>
           </Col>
           <Col sm="4">
             <Card>
