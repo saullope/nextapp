@@ -6,39 +6,10 @@ import Login from './components/Login'
 import {
   Container,
   Row, Col, Card
-} from 'react-bootstrap'
+} from 'react-bootstrap';
+
 
 export default function Home() {
-
-  const optionsRol = [
-    {name: 'Administrador', value: '/admin'},
-    {name: 'Cliente', value: '/inicio-cliente'},
-  ]
-
-  const [ rol, setRol ] = useState('');
-  const [ email, setEmail ] = useState('');
-  const [ password, setPassword ] = useState('');
-
-  const handleRol = (e) => {
-    setRol(e.target.value);
-  };
-
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleOptionSubmit = (e) => {
-    setRol(e.target.value);
-  };
-
-  const ShowRol = () => {
-    alert(`This your's email: ${email} \n This your's rol: ${rol}`);
-  };
-
 
   return (
     <div >
@@ -57,11 +28,6 @@ export default function Home() {
               <br /><br />
               <Card.Body>
                 <Login 
-                  options={optionsRol}
-                  handleSelect={handleOptionSubmit}
-                  handleEmail={handleEmail}
-                  handlePassword={handlePassword}
-                  handleSubmit={ShowRol}
                 />
               </Card.Body>
             </Card>
