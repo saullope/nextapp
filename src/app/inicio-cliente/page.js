@@ -81,7 +81,7 @@ export default function InicioCliente() {
       <br />
         <Row>
           {shoes.map((model, index) => (
-            <ProductClientCatalogo
+            <ProductClientCatalogo key={index}
               code={model.code}
               name={model.name}
               description={model.description}

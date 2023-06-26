@@ -15,7 +15,7 @@ const config = {
 }
 
 console.log("Starting connection server...");
-connectAndQuery();
+//connectAndQuery();
 
 
 // this is a structure of a simple query consum
@@ -39,6 +39,5 @@ connectAndQuery();
 }*/
 
 module.exports = {
-    connectAndQuery,
     config
 }

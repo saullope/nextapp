@@ -1,87 +1,41 @@
 "use client"
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import TablaPedidos from '../components/TablaPedidos';
 import HeadTitle from '../components/HeadTitle';
+import { set } from 'react-hook-form';
 
 export default function Pedidos() {
 
-    const orders = [
-        {
-          client: 'Juan Perez',
-          code: 'W001',
-          style: 'Botas de cuero',
-          orderDate: '2023-05-20',
-          deliveryDate: '2023-06-05',
-          totalPairs: 2,
-          totalPrice: 259.98
+  const [respond, setRespond] = useState([]);
+  const [ offset, setOffset ] = useState(0);
+  const [ pagina, setPagina ] = useState(1);
+  const [ recuperando, setRecuperando ] = useState(false);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      setRecuperando(true);
+      const url = `http://localhost:3000/api/pedidos/${offset}`;
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        {
-          client: 'María Lopez',
-          code: 'W002',
-          style: 'Sandalias de verano',
-          orderDate: '2023-05-21',
-          deliveryDate: '2023-06-10',
-          totalPairs: 1,
-          totalPrice: 59.99
-        },
-        {
-          client: 'Carlos Ramirez',
-          code: 'W003',
-          style: 'Tacones altos',
-          orderDate: '2023-05-22',
-          deliveryDate: '2023-06-12',
-          totalPairs: 2,
-          totalPrice: 179.98
-        },
-        {
-          client: 'Ana Torres',
-          code: 'W004',
-          style: 'Bailarinas',
-          orderDate: '2023-05-23',
-          deliveryDate: '2023-06-07',
-          totalPairs: 1,
-          totalPrice: 49.99
-        },
-        {
-          client: 'Pedro Sanchez',
-          code: 'W005',
-          style: 'Zapatos de fiesta',
-          orderDate: '2023-05-24',
-          deliveryDate: '2023-06-09',
-          totalPairs: 2,
-          totalPrice: 159.98
-        },
-        {
-          client: 'Laura Morales',
-          code: 'W006',
-          style: 'Botines de moda',
-          orderDate: '2023-05-25',
-          deliveryDate: '2023-06-15',
-          totalPairs: 1,
-          totalPrice: 109.99
-        },
-        {
-          client: 'Roberto Fernandez',
-          code: 'W001',
-          style: 'Botas de cuero',
-          orderDate: '2023-05-26',
-          deliveryDate: '2023-06-08',
-          totalPairs: 2,
-          totalPrice: 259.98
-        },
-        {
-          client: 'Sara Navarro',
-          code: 'W002',
-          style: 'Sandalias de verano',
-          orderDate: '2023-05-27',
-          deliveryDate: '2023-06-11',
-          totalPairs: 1,
-          totalPrice: 59.99
-        }
-    ];
+      });
+      const responseData = await response.json();
+      setRespond(responseData);
+    } catch (error) {
+      console.error('Error:', error.message);
+    } finally {
+      setRecuperando(false);
+    }    
+  };
 
     const watchOrders = ( order ) => {
         alert(`ver pedido de: ${order.client}`);
@@ -94,6 +48,25 @@ export default function Pedidos() {
     const trashOrders = ( order ) => {
         alert(`eliminar pedido de: ${order.client}`);
     };
+
+    const nextPage = () => {
+
+      if(offset >= 0){
+        setOffset(offset + 5);
+        fetchData();
+        setPagina(pagina + 1);
+      }
+    };
+
+    const prevPage = () => {
+      if( offset >=5 ){
+        setOffset(offset - 5);
+        fetchData();
+        setPagina(pagina - 1);
+      } 
+    };
+
+
 
 
     return (
@@ -119,15 +92,19 @@ export default function Pedidos() {
                         <Form.Group as={Col} md="auto">
                             <br />
                             <Button variant="primary" type="submit" onClick={searchOrders}>
-                                <i class="bi bi-search">Buscar</i>
+                                <i className="bi bi-search">Buscar</i>
                             </Button>
                         </Form.Group>
                     </Row><br />
                     <Row>
                         <TablaPedidos 
-                            orders={orders}
+                            respond={respond}
                             watchOrders={watchOrders}
-                            trashOrders={trashOrders}    
+                            trashOrders={trashOrders}
+                            nextPage={nextPage}
+                            prevPage={prevPage}
+                            pagina={pagina}
+                            recuperando={recuperando}
                         />
                     </Row>
             </Container>

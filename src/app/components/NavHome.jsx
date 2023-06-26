@@ -7,7 +7,7 @@ export default function NavHome(){
         <div>
              <Navbar bg="primary" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Gaitan Shoes</Navbar.Brand>
+          <Navbar.Brand href="#home">Calzado Gaitan</Navbar.Brand>
           <Nav className="me-auto">
           </Nav>
         </Container>

@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav, Form, Button } from "react-bootstrap";
+import { Navbar, Container, Nav, Form, Button, Dropdown } from "react-bootstrap";
 import Link from "next/link";
 
 export default function NavigationClient({ countKart }) {
@@ -28,14 +28,19 @@ export default function NavigationClient({ countKart }) {
           <div className="me-3">
             <Button variant="outline-primary">
               <i className="bi bi-cart"></i>
-                { countKart > 0 ? <span class="position-absolute badge rounded-pill bg-danger">{countKart}</span> : null }
+              {countKart > 0 ? <span class="position-absolute badge rounded-pill bg-danger">{countKart}</span> : null}
             </Button>
           </div>
           <br />
           <Form>
-            <Link href="/">
-              <Button variant="outline-danger">Cerrar Sesion</Button>
-            </Link>
+            <Dropdown >
+              <Dropdown.Toggle variant="outline-danger" id="dropdown-basic">
+                <i className="bi bi-person"></i>
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item href="/"><i className="bi bi-box-arrow-left"> Salir </i></Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </Form>
         </Container>
       </Navbar>
